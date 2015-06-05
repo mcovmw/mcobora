@@ -1,5 +1,7 @@
 package com.vmware.borathon.sample.api.config;
 
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
