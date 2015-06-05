@@ -46,22 +46,27 @@ public class DataConfig {
    @Bean
    public DataSource dataSource() {
       PGSimpleDataSource dataSource = new PGSimpleDataSource();
-
+      Map<String, String> env = System.getenv();
+      String msg = "";
+      for (Entry<String, String> v : env.entrySet()) {
+         msg += (v.getKey() + "=" + v.getValue());
+      }
+      throw new RuntimeException(msg);
       // URL and PORT for database from environment variables take precedence over properties
-      String dbUrl = System.getenv(ENV_VAR_NAME_DB_URL);
-      String dbPort = System.getenv(ENV_VAR_NAME_DB_PORT);
-
-      dataSource.setServerName(StringUtils.isEmpty(dbUrl)
-            ? environment.getProperty(PROPERTY_NAME_DB_URL)
-            : dbUrl);
-      dataSource.setPortNumber(StringUtils.isEmpty(dbPort)
-            ? Integer.valueOf(environment.getProperty(PROPERTY_NAME_DB_PORT))
-            : Integer.valueOf(dbPort));
-      dataSource.setDatabaseName(environment.getProperty(PROPERTY_NAME_DB_NAME));
-      dataSource.setUser(environment.getProperty(PROPERTY_NAME_DB_USERNAME));
-      dataSource.setPassword(environment.getProperty(PROPERTY_NAME_DB_PASSWORD));
-
-      return dataSource;
+      // String dbUrl = System.getenv(ENV_VAR_NAME_DB_URL);
+      // String dbPort = System.getenv(ENV_VAR_NAME_DB_PORT);
+      //
+      // dataSource.setServerName(StringUtils.isEmpty(dbUrl)
+      // ? environment.getProperty(PROPERTY_NAME_DB_URL)
+      // : dbUrl);
+      // dataSource.setPortNumber(StringUtils.isEmpty(dbPort)
+      // ? Integer.valueOf(environment.getProperty(PROPERTY_NAME_DB_PORT))
+      // : Integer.valueOf(dbPort));
+      // dataSource.setDatabaseName(environment.getProperty(PROPERTY_NAME_DB_NAME));
+      // dataSource.setUser(environment.getProperty(PROPERTY_NAME_DB_USERNAME));
+      // dataSource.setPassword(environment.getProperty(PROPERTY_NAME_DB_PASSWORD));
+      //
+      // return dataSource;
    }
 
    @Bean
