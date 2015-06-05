@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.vmware.bora</groupId>
+		<artifactId>bora</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sample</artifactId>
+	<packaging>pom</packaging>
+
+	<properties>
+      <servlet.version>3.0.1</servlet.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<spring.data.version>1.7.0.RELEASE</spring.data.version>
+		<hibernate.version>4.1.0.Final</hibernate.version>
+		<postgresql.version>9.0-801.jdbc4</postgresql.version>
+      <jackson.version>2.5.3</jackson.version>
+      <junit.version>4.12</junit.version>
+      <json.path.version>2.0.0</json.path.version>
+      <plugin.maven.war.version>2.6</plugin.maven.war.version>
+	</properties>
+
+	<modules>
+		<module>api</module>
+		<module>api-tester</module>
+		<module>ui</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${plugin.maven.war.version}</version>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

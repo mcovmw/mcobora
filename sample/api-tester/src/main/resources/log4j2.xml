@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+   <Appenders>
+      <Console name="console" target="SYSTEM_OUT" ignoreExceptions="false">
+         <PatternLayout pattern="%d %-5p [%c{1}] %m %n" />
+      </Console>
+      <RollingRandomAccessFile name="FILE"
+         fileName="test-func.log" filePattern="test-func-old.log">
+         <PatternLayout pattern="%d %-5p [%c{1}] %m %n" />
+         <Policies>
+            <OnStartupTriggeringPolicy />
+         </Policies>
+      </RollingRandomAccessFile>
+   </Appenders>
+   <loggers>
+      <Logger name="com.vmware.vcac" level="info" additivity="false">
+         <AppenderRef ref="console" />
+         <AppenderRef ref="FILE" />
+      </Logger>
+      <Logger name="com.vmware.vrcs" level="debug" additivity="false">
+         <AppenderRef ref="console" />
+         <AppenderRef ref="FILE" />
+      </Logger>
+      <Root level="info">
+         <AppenderRef ref="console" />
+         <AppenderRef ref="FILE" />
+      </Root>
+   </loggers>
+</Configuration>

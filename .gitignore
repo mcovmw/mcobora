@@ -1,0 +1,12 @@
+target
+.idea
+.settings
+.project
+.classpath
+*.iml
+*~
+\#*#
+build
+lib/extjs/extjs/
+*.diff
+.DS_Store
